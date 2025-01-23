@@ -20,6 +20,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Override
     User save(User user);
 
-    @Query(value="select * from user where email= :email",nativeQuery = true)
+    //@Query(value="select * from users where email= :email",nativeQuery = true)
     Optional<User> findByEmail(String email);
+
 }

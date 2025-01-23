@@ -5,7 +5,7 @@ import com.example.userservice.DTOs.EmailDoesNotExistExceptionDTO;
 import com.example.userservice.DTOs.IncorrectEmailOrPasswordExceptionDTO;
 import com.example.userservice.exceptions.EmailAlreadyExistException;
 import com.example.userservice.exceptions.EmailDoesNotExistException;
-import com.example.userservice.exceptions.IncorrectEmailOrPasswordException;
+import com.example.userservice.exceptions.IncorrectPasswordException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,10 +22,10 @@ public class ExceptionHandlers {
         return response;
     }
 
-    @ExceptionHandler(IncorrectEmailOrPasswordException.class)
-    public ResponseEntity<IncorrectEmailOrPasswordExceptionDTO> IncorrectEmailOrPasswordExceptionHandler(IncorrectEmailOrPasswordException exception){
+    @ExceptionHandler(IncorrectPasswordException.class)
+    public ResponseEntity<IncorrectEmailOrPasswordExceptionDTO> IncorrectEmailOrPasswordExceptionHandler(IncorrectPasswordException exception){
         IncorrectEmailOrPasswordExceptionDTO dto=new IncorrectEmailOrPasswordExceptionDTO();
-        dto.setMessage("Email: "+exception.getEmail()+" or Password: "+exception.getPassword()+" is incorrect");
+        dto.setMessage("Entered password is incorrect");
         ResponseEntity<IncorrectEmailOrPasswordExceptionDTO> response=new ResponseEntity<>(dto,HttpStatus.BAD_REQUEST);
         return response;
     }

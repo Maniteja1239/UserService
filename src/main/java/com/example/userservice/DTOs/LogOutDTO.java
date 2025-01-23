@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class EmailAlreadyExistExceptionDTO {
-    private String message;
+public class LogOutDTO {
+    private String token;
 }
